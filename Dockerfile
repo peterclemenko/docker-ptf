@@ -1,12 +1,10 @@
-FROM aoighost/node-powershell
+FROM debian:sid
 
 LABEL maintainer="Peter Clemenko"
 
 ENV HOME=/pentest
 
 WORKDIR $HOME
-
-RUN echo "deb http://ftp.debian.org/debian stretch-backports main" | sudo tee -a /etc/apt/sources.list
 
 RUN apt-get update
 
