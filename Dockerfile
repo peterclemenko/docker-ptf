@@ -1,23 +1,7 @@
 FROM debian:sid
-
-LABEL maintainer="Peter Clemenko"
-
-ENV HOME=/pentest
-
-WORKDIR $HOME
-
-RUN apt-get update
-
-RUN apt-get dist-upgrade -y
-
-RUN apt-get install git python -y
-
-RUN git clone https://github.com/trustedsec/ptf.git /pentest/ptf
-
-WORKDIR /pentest/ptf
-
-RUN ./ptf --update-all -y
-
-ENTRYPOINT /bin/bash
-
-#CMD node index.js --commmand $COMMAND
+LABEL version="1.1"
+LABEL description="Dockerized version of Trustedsec PTF - Penetration Testing Framework"
+LABEL author="Jacobo Avariento Gimeno - Modified by Peter Clemenko"
+COPY .bashrc /root/.bashrc
+COPY bootstrap.sh /root/bootstrap.sh
+RUN bash -c /root/bootstrap.sh

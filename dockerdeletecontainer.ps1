@@ -1,4 +1,4 @@
-$containerName = "docker-ptf-exploitation-set"
+$containerName = "docker-ptf"
 
 docker container stop $containerName 
 docker container rm $containerName
